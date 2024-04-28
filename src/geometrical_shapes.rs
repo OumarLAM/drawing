@@ -214,16 +214,16 @@ impl Triangle {
         }
     }
 
-    pub fn random(width: i32, height: i32) -> Self {
-        // Générez deux points aléatoires pour les coins opposés du rectangle
-        let a = Point::random(width, height);
-        let b = Point::random(width, height);
-        let c = Point::random(width, height);
+    // pub fn random(width: i32, height: i32) -> Self {
+    //     // Générez deux points aléatoires pour les coins opposés du rectangle
+    //     let a = Point::random(width, height);
+    //     let b = Point::random(width, height);
+    //     let c = Point::random(width, height);
 
-        // Déterminez les coordonnées des coins opposés du rectangle
+    //     // Déterminez les coordonnées des coins opposés du rectangle
 
-        Triangle::new(&a, &b, &c)
-    }
+    //     Triangle::new(&a, &b, &c)
+    // }
 }
 
 impl Drawable for Triangle {
@@ -284,6 +284,7 @@ fn draw_circle(circle: &Circle, image: &mut Image, color: &Color) {
     }
 }
 
+//algo de bresenham
 fn plot_circle_points(center: &Point, x: i32, y: i32, image: &mut Image, color: &Color) {
     draw_pixel(center.x + x, center.y + y, image, color);
     draw_pixel(center.x - x, center.y + y, image, color);
