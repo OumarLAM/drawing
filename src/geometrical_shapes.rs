@@ -346,3 +346,64 @@ impl Drawable for Pentagon {
         drawline(&ea, image, &color);
     }
 }
+
+pub struct Cube {
+    pub a: Point,
+    pub b: Point,
+    pub c: Point,
+    pub d: Point,
+    pub e: Point,
+    pub f: Point,
+    pub g: Point,
+    pub h: Point,
+}
+
+impl Cube {
+    pub fn new(a: &Point, b: &Point, c: &Point, d: &Point, e: &Point, f: &Point, g: &Point, h: &Point) -> Self {
+        Cube {
+            a: a.clone(),
+            b: b.clone(),
+            c: c.clone(),
+            d: d.clone(),
+            e: e.clone(),
+            f: f.clone(),
+            g: g.clone(),
+            h: h.clone(),
+        }
+    }
+}
+
+impl Drawable for Cube {
+    fn draw(&self, image: &mut Image) {
+        // Create the 12 lines for the cube
+        let ab = Line::new(&self.a, &self.b);
+        let bc = Line::new(&self.b, &self.c);
+        let cd = Line::new(&self.c, &self.d);
+        let da = Line::new(&self.d, &self.a);
+
+        let ef = Line::new(&self.e, &self.f);
+        let fg = Line::new(&self.f, &self.g);
+        let gh = Line::new(&self.g, &self.h);
+        let he = Line::new(&self.h, &self.e);
+
+        let ae = Line::new(&self.a, &self.e);
+        let bf = Line::new(&self.b, &self.f);
+        let cg = Line::new(&self.c, &self.g);
+        let dh = Line::new(&self.d, &self.h);
+
+        let color = Color::random();
+
+        drawline(&ab, image, &color);
+        drawline(&bc, image, &color);
+        drawline(&cd, image, &color);
+        drawline(&da, image, &color);
+        drawline(&ef, image, &color);
+        drawline(&fg, image, &color);
+        drawline(&gh, image, &color);
+        drawline(&he, image, &color);
+        drawline(&ae, image, &color);
+        drawline(&bf, image, &color);
+        drawline(&cg, image, &color);
+        drawline(&dh, image, &color);
+    }
+}

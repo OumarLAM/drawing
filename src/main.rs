@@ -42,5 +42,17 @@ fn main() {
     );
     pentagon.draw(&mut image);
 
+    let cube = gs::Cube::new(
+        &gs::Point::new(400, 400),
+        &gs::Point::new(600, 400),
+        &gs::Point::new(600, 200),
+        &gs::Point::new(400, 200),
+        &gs::Point::new(300, 350),
+        &gs::Point::new(500, 350),
+        &gs::Point::new(500, 150),
+        &gs::Point::new(300, 150),
+    );
+    cube.draw(&mut image);
+
     raster::save(&image, "image.png");
 }
