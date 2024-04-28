@@ -8,7 +8,7 @@ use raster::Image;
 
 fn main() {
     // Create a new blank image with dimensions 1000x1000 pixels
-    let _image = Image::blank(1000, 1000);
+    // let _image = Image::blank(1000, 1000);
 
     //  Save the image to a file
     let mut image = Image::blank(1000, 1000);
@@ -31,6 +31,16 @@ fn main() {
     for _ in 1..50 {
         gs::Circle::random(image.width, image.height).draw(&mut image);
     }
+
+    let pentagon = gs::Pentagon::new(
+        &gs::Point::new(650, 450),
+        &gs::Point::new(750, 600),
+        &gs::Point::new(700, 750),
+        &gs::Point::new(600, 750),
+        &gs::Point::new(550, 600),
+        
+    );
+    pentagon.draw(&mut image);
 
     raster::save(&image, "image.png");
 }

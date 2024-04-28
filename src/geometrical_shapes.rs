@@ -24,7 +24,7 @@ impl RandomColor for Color {
     }
 }
 
-impl Displayable for raster::Image {
+impl Displayable for Image {
     fn display(&mut self, x: i32, y: i32, color: Color) {
         if x >= 0 && x < self.width && y >= 0 && y < self.height {
             // Utilisez le résultat renvoyé par set_pixel et gérez les erreurs correctement
@@ -306,5 +306,43 @@ impl Drawable for Circle {
     fn draw(&self, image: &mut Image) {
         let color = Color::random();
         draw_circle(&self, image, &color);
+    }
+}
+
+pub struct Pentagon {
+    pub a: Point,
+    pub b: Point,
+    pub c: Point,
+    pub d: Point,
+    pub e: Point,
+}
+
+impl Pentagon {
+    pub fn new(a: &Point, b: &Point, c: &Point, d: &Point, e: &Point) -> Self {
+        Pentagon {
+            a: a.clone(),
+            b: b.clone(),
+            c: c.clone(),
+            d: d.clone(),
+            e: e.clone(),
+        }
+    }
+}
+
+impl Drawable for Pentagon {
+    fn draw(&self, image: &mut Image) {
+        let ab = Line::new(&self.a, &self.b);
+        let bc = Line::new(&self.b, &self.c);
+        let cd = Line::new(&self.c, &self.d);
+        let de = Line::new(&self.d, &self.e);
+        let ea = Line::new(&self.e, &self.a);
+
+        let color = Color::random();
+
+        drawline(&ab, image, &color);
+        drawline(&bc, image, &color);
+        drawline(&cd, image, &color);
+        drawline(&de, image, &color);
+        drawline(&ea, image, &color);
     }
 }
