@@ -1,0 +1,1 @@
+{"rustc":3323483500999627516,"features":"[\"default\", \"raii_no_panic\"]","declared_features":"","target":12064922266024862496,"profile":12206360443249279867,"path":334302673568964402,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/lzw-5f56e803d1f21ada/dep-lib-lzw"}}],"rustflags":[],"metadata":11807918162295707134,"config":2202906307356721367,"compile_kind":0}
